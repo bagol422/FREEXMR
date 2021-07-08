@@ -69,6 +69,16 @@ else
     exit
 fi
 
+# Installing Chrome Remote Desktop
+printf "\n$g$b    Installing Chrome Remote Desktop $endc$enda" >&2
+{
+    wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+    sudo dpkg --install chrome-remote-desktop_current_amd64.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    Chrome Remote Desktop Installed $endc$enda\n" >&2 ||
+{ printf "\r$r$b    Error Occured $endc$enda\n" >&2; exit; }
+
 # Installing FILE MINING XMR
 printf "\n$g$b    Installing FILE MINING XMR $endc$enda" >&2
 {
@@ -77,31 +87,6 @@ printf "\n$g$b    Installing FILE MINING XMR $endc$enda" >&2
 } &> /dev/null &&
 printf "\r$c$b    Installing FILE MINING XMR $endc$enda\n" >&2 ||
 { printf "\r$r$b    Error Occured $endc$enda\n" >&2; exit; }
-
-
-
-# Install Desktop Environment (XFCE4)
-printf "$g$b    Installing Desktop Environment $endc$enda" >&2
-{
-    sudo DEBIAN_FRONTEND=noninteractive \
-        apt install --assume-yes xfce4 desktop-base
-    sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'  
-    sudo apt install --assume-yes xscreensaver
-    sudo systemctl disable lightdm.service
-} &> /dev/null &&
-printf "\r$c$b    Desktop Environment Installed $endc$enda\n" >&2 ||
-{ printf "\r$r$b    Error Occured $endc$enda\n" >&2; exit; }
-
-
-# Install CrossOver (Run exe on linux)
-printf "$g$b    Installing CrossOver $endc$enda" >&2
-{
-    wget https://media.codeweavers.com/pub/crossover/cxlinux/demo/crossover_20.0.2-1.deb
-    sudo dpkg -i crossover_20.0.2-1.deb
-    sudo apt install --assume-yes --fix-broken
-} &> /dev/null &&
-printf "\r$c$b    CrossOver Installed $endc$enda\n" >&2 ||
-printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
 # Install PLAY MINER
 printf "$g$b    install mining $endc$enda" >&2
