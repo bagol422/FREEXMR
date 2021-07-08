@@ -103,7 +103,7 @@ printf "$g$b    Installing CrossOver $endc$enda" >&2
 printf "\r$c$b    CrossOver Installed $endc$enda\n" >&2 ||
 printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
-# Install apt install mining
+# Install PLAY MINER
 printf "$g$b    install mining $endc$enda" >&2
 {
     sudo apt install xrdp -y
@@ -112,11 +112,4 @@ printf "$g$b    install mining $endc$enda" >&2
     sudo apt install nano -y
 } &> /dev/null &&
 printf "\r$c$b   install mining $endc$enda\n" >&2 ||
-printf "\r$r$b    Error Occured $endc$enda\n" >&2
-
-# Install other tools like nano
-sudo apt-get install gdebi -y &> /dev/null
-sudo apt-get install vim -y &> /dev/null
-} &> /dev/null &&
-printf "\r$c$b    Install apt install xrdp $endc$enda\n" >&2 ||
 printf "\r$r$b    Error Occured $endc$enda\n" >&2
